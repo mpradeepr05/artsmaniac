@@ -1,0 +1,91 @@
+HTTrack3.48-22+htsswf+htsjava launched on Tue, 23 Aug 2016 01:08:41 at http://apasmart.pl/ +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" http://apasmart.pl/ -O1 "C:\Users\Admin\Desktop\htt" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+01:08:42	Warning: 	Note: due to apasmart.pl remote robots.txt rules, links beginning with these path will be forbidden: /wp-admin/ (see in the options to disable this)
+01:18:49	Error: 	"Not Found" (404) at link apasmart.pl/wp-content/themes/apa/assets/vendor/jquery/dist/jquery.min.js?1.11.1 (from apasmart.pl/)
+01:18:49	Warning: 	Moved Permanently for apasmart.pl/?p=325
+01:18:49	Warning: 	File has moved from apasmart.pl/?p=325 to http://apasmart.pl/lista-newsow/
+01:18:49	Warning: 	Moved Permanently for apasmart.pl/?p=280
+01:18:49	Warning: 	File has moved from apasmart.pl/?p=280 to http://apasmart.pl/showroom/
+01:18:49	Warning: 	Moved Permanently for apasmart.pl/?p=88
+01:18:49	Warning: 	File has moved from apasmart.pl/?p=88 to http://apasmart.pl/partnerzy/
+01:18:49	Warning: 	Moved Permanently for apasmart.pl/?p=135
+01:18:49	Warning: 	File has moved from apasmart.pl/?p=135 to http://apasmart.pl/o-marce/
+01:18:49	Warning: 	Moved Permanently for apasmart.pl/?p=463
+01:18:49	Warning: 	File has moved from apasmart.pl/?p=463 to http://apasmart.pl/prestiz/
+01:18:49	Warning: 	Moved Permanently for apasmart.pl/?p=454
+01:18:49	Warning: 	File has moved from apasmart.pl/?p=454 to http://apasmart.pl/bezpieczenstwo/
+01:18:49	Warning: 	Moved Permanently for apasmart.pl/?p=460
+01:18:49	Warning: 	File has moved from apasmart.pl/?p=460 to http://apasmart.pl/komfort/
+01:18:49	Warning: 	Moved Permanently for apasmart.pl/?p=202
+01:18:49	Warning: 	File has moved from apasmart.pl/?p=202 to http://apasmart.pl/innowacja/
+01:18:49	Warning: 	Moved Permanently for apasmart.pl/?p=439
+01:18:49	Warning: 	File has moved from apasmart.pl/?p=439 to http://apasmart.pl/kontakt/
+01:18:49	Warning: 	Moved Permanently for apasmart.pl/?p=1345
+01:18:49	Warning: 	File has moved from apasmart.pl/?p=1345 to http://apasmart.pl/produkt/smart-glass/
+01:18:49	Warning: 	Moved Permanently for apasmart.pl/?p=634
+01:18:49	Warning: 	File has moved from apasmart.pl/?p=634 to http://apasmart.pl/produkt/visionbms-2/
+01:18:49	Warning: 	Moved Permanently for apasmart.pl/?p=1432
+01:18:49	Warning: 	File has moved from apasmart.pl/?p=1432 to http://apasmart.pl/produkt/astero/
+01:18:49	Warning: 	Moved Permanently for apasmart.pl/?p=1430
+01:18:49	Warning: 	File has moved from apasmart.pl/?p=1430 to http://apasmart.pl/produkt/ekrany-akustyczne/
+01:18:49	Warning: 	Moved Permanently for apasmart.pl/?p=1433
+01:18:49	Warning: 	File has moved from apasmart.pl/?p=1433 to http://apasmart.pl/produkt/pluris/
+01:18:49	Warning: 	Moved Permanently for apasmart.pl/?p=1434
+01:18:49	Warning: 	File has moved from apasmart.pl/?p=1434 to http://apasmart.pl/produkt/yamaha-music-cast/
+01:18:49	Warning: 	Moved Permanently for apasmart.pl/?p=1421
+01:18:49	Warning: 	File has moved from apasmart.pl/?p=1421 to http://apasmart.pl/produkt/projektor-wux-400st/
+01:18:49	Warning: 	Moved Permanently for apasmart.pl/?p=1420
+01:18:49	Warning: 	File has moved from apasmart.pl/?p=1420 to http://apasmart.pl/produkt/nowy-ekoroad-2/
+01:18:49	Warning: 	Moved Permanently for apasmart.pl/?p=55
+01:18:49	Warning: 	File has moved from apasmart.pl/?p=55 to http://apasmart.pl/partner/canon/
+01:18:50	Warning: 	Moved Permanently for apasmart.pl/?p=97
+01:18:50	Warning: 	File has moved from apasmart.pl/?p=97 to http://apasmart.pl/partner/apagroup/
+01:18:50	Warning: 	Moved Permanently for apasmart.pl/?p=915
+01:18:50	Warning: 	File has moved from apasmart.pl/?p=915 to http://apasmart.pl/partner/draftel/
+01:18:50	Warning: 	Moved Permanently for apasmart.pl/?p=813
+01:18:50	Warning: 	File has moved from apasmart.pl/?p=813 to http://apasmart.pl/partner/furniko/
+01:18:52	Warning: 	Moved Permanently for apasmart.pl/?p=580
+01:18:52	Warning: 	File has moved from apasmart.pl/?p=580 to http://apasmart.pl/partner/espider/
+01:18:52	Warning: 	Moved Permanently for apasmart.pl/?p=573
+01:18:52	Warning: 	File has moved from apasmart.pl/?p=573 to http://apasmart.pl/partner/ledfactory/
+01:18:52	Warning: 	Moved Permanently for apasmart.pl/?p=99
+01:18:52	Warning: 	File has moved from apasmart.pl/?p=99 to http://apasmart.pl/partner/polflor/
+01:18:55	Warning: 	Moved Permanently for apasmart.pl/?p=126
+01:18:55	Warning: 	File has moved from apasmart.pl/?p=126 to http://apasmart.pl/partner/raiffeisenleasing/
+01:18:55	Warning: 	Moved Permanently for apasmart.pl/?p=900
+01:18:55	Warning: 	File has moved from apasmart.pl/?p=900 to http://apasmart.pl/partner/smart-glass/
+01:18:55	Warning: 	Moved Permanently for apasmart.pl/?p=916
+01:18:55	Warning: 	File has moved from apasmart.pl/?p=916 to http://apasmart.pl/partner/uniwex/
+01:18:56	Warning: 	Moved Permanently for apasmart.pl/?p=1054
+01:18:56	Warning: 	File has moved from apasmart.pl/?p=1054 to http://apasmart.pl/partner/phonomedia/
+01:19:04	Warning: 	Moved Permanently for apasmart.pl/?p=154
+01:19:04	Warning: 	File has moved from apasmart.pl/?p=154 to http://apasmart.pl/polityka-prywatnosci/
+01:19:04	Warning: 	Moved Permanently for apasmart.pl/?p=1423
+01:19:04	Warning: 	File has moved from apasmart.pl/?p=1423 to http://apasmart.pl/produkt/kamera-cb-h43/
+01:19:04	Warning: 	Moved Permanently for apasmart.pl/?p=1431
+01:19:04	Warning: 	File has moved from apasmart.pl/?p=1431 to http://apasmart.pl/produkt/hush-pads/
+01:19:04	Warning: 	Moved Permanently for apasmart.pl/?p=1358
+01:19:04	Warning: 	File has moved from apasmart.pl/?p=1358 to http://apasmart.pl/produkt/nowy-ekohall/
+01:19:04	Warning: 	Moved Permanently for apasmart.pl/?p=1425
+01:19:04	Warning: 	File has moved from apasmart.pl/?p=1425 to http://apasmart.pl/produkt/panele-affinity-255/
+01:19:04	Warning: 	Moved Permanently for apasmart.pl/?p=1426
+01:19:04	Warning: 	File has moved from apasmart.pl/?p=1426 to http://apasmart.pl/produkt/plytki-dywanowe-the-park/
+01:19:04	Warning: 	Moved Permanently for apasmart.pl/?p=1424
+01:19:04	Warning: 	File has moved from apasmart.pl/?p=1424 to http://apasmart.pl/produkt/wykladzina-artigo-screed/
+01:19:04	Warning: 	Moved Permanently for apasmart.pl/?p=1435
+01:19:04	Warning: 	File has moved from apasmart.pl/?p=1435 to http://apasmart.pl/produkt/onkyo-z-kolumnami-focal/
+01:19:04	Warning: 	Moved Permanently for apasmart.pl/?p=1436
+01:19:04	Warning: 	File has moved from apasmart.pl/?p=1436 to http://apasmart.pl/produkt/marantz-z-monitorem-audio/
+01:19:04	Warning: 	Moved Permanently for apasmart.pl/?p=1427
+01:19:04	Warning: 	File has moved from apasmart.pl/?p=1427 to http://apasmart.pl/produkt/kolumny-z-serii-audeo/
+01:19:05	Warning: 	Moved Permanently for apasmart.pl/?p=1428
+01:19:05	Warning: 	File has moved from apasmart.pl/?p=1428 to http://apasmart.pl/produkt/seria-wzmacniaczy-nxa/
+
+HTTrack Website Copier/3.48-22 mirror complete in 10 minutes 24 seconds : 199 links scanned, 158 files written (17258307 bytes overall) [15268540 bytes received at 24468 bytes/sec], 2664452 bytes transferred using HTTP compression in 67 files, ratio 22%, 4.3 requests per connection
+(1 errors, 79 warnings, 0 messages)

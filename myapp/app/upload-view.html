@@ -1,0 +1,20 @@
+<form  ng-controller="UploadCtrl as vm" name="vm.upload_form">
+    <input 
+        type="file" 
+        ngf-select 
+        ng-model="vm.file" 
+        name="file" 
+        ngf-pattern="'image/*'"
+        accept="image/*" 
+        ngf-max-size="20MB" 
+        />
+        <img style="vertical-align: middle; height: 40px;" ng-show="!!vm.file" ngf-thumbnail="vm.file"/>
+    <i ng-show="vm.upload_form.file.$error.required">*required</i><br>
+    <i ng-show="vm.upload_form.file.$error.maxSize">File too large 
+    {{vm.file.size / 1000000|number:1}}MB: max 20M</i>
+   <!--  Multiple files
+    <div class="button" ngf-select ng-model="vm.files" ngf-multiple="true">Select</div>
+    Drop files: <div ngf-drop ng-model="vm.files" class="drop-box">Drop</div> -->
+    <button type="submit" ng-click="vm.submit()">submit</button>
+    <p>{{vm.progress}}</p>
+</form>

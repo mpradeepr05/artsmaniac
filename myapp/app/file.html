@@ -1,0 +1,39 @@
+<html ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<!--<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular.min.js"></script>-->
+	<!-- File upload start -->
+	<script type="text/javascript" src="node_modules/angular/angular.min.js"></script>
+	<!-- File upload end -->
+	<style type="text/css">
+		body{font-family: arial;}
+		input{padding:7px; border: 1px #dadada solid;}
+		button{padding:8px 12px; background: green; border:none; color: #fff;}
+		table tr{border-bottom: 1px #eee solid;}
+	</style>
+</head>
+<body>
+	<input type="file" files-input ng-model="fileArray" multiple>
+    
+    <h2>Files</h2>
+    <div ng-repeat="file in fileArray">
+      {{file.name}}
+    </div>
+	<script type="text/javascript">
+		angular.module("app",[]);
+
+		angular.module("app").directive("filesInput", function() {
+		  return {
+		    require: "ngModel",
+		    link: function postLink(scope,elem,attrs,ngModel) {
+		      elem.on("change", function(e) {
+		        var files = elem[0].files;
+		        ngModel.$setViewValue(files);
+		      })
+		    }
+		  }
+		});
+	</script>
+</body>
+</html>
