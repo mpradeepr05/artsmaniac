@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+<head>
+	<meta charset="UTF-8">
+	<title>:: ARTS MANIAC ::</title>
+	<meta charset="utf-8" name="viewport" content="initial-scale=1,maximum-scale=1">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="fonts/style.css">
+	<link rel="stylesheet" type="text/css" href="css/slick.css">
+	<link rel="stylesheet" type="text/css" href="css/gallery.css">
+	<!-- Script Files -->
+	<script src="js/libs/angular.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js"></script>
+	<script src="js/libs/jquery.min.js"></script>
+	<script src="js/libs/slick.js"></script>
+	 <script src="js/libs/gallery.js"></script>
+	<script src="js/libs/script.js"></script>
+	<script type="text/javascript">
+		
+	</script>
+</head>
+<body ng-controller="myCtrl">
+	<main class="home">
+		<header>
+			<nav>
+				<div class="logo small-logo col-sm-4">
+					<a href="#"><span class="color-brand">ARTS</span> MANIAC</a>
+				</div>
+				<input type="checkbox" name="" class="mobile-nav-input visible-xs">
+				<a class="mobile-nav visible-xs"></a>
+				<ul class="col-sm-8 main-menu" ng-click="vm.onNavClick($event)">
+					<li><a class="active" href="#home">Home</a></li>
+					<li><a href="#aboutus">About artist</a></li>
+					<li><a href="#art-work">Art Works</a></li>
+					<li><a href="#activates">Other Projects</a></li>
+					<li><a href="#gallery">Gallery</a></li>
+					<li><a href="#contact">Contact</a></li>
+				</ul>
+			</nav>
+		</header>
+		<div class="containt-wrap class">
+			<section class="banner class" id="home">
+				<div class="col-sm-4 logo text-center">
+					<a href="#" class="hidden-xs"><span class="color-brand">ARTS</span> MANIAC</a>
+					<br class="hidden-xs">
+					<img src="images/signature.png" width="300" class="signature">
+					<br>
+					<br>
+					<img src="images/pics.png" class="pics" width="150">
+					<h3>Creativity takes courage</h3>
+					<h4>"It always seems<br class="hidden-xs"> impossible until it’s done” </h4>
+					<br class="visible-xs">
+				</div>
+				<!--banner-->
+				<div class="col-sm-8 slider loading" id="abc">
+					<picture style="background: #5d5d5d">
+					<!-- <img src="http://smallenvelop.com/wp-content/uploads/2014/08/simple-pre-loader.jpg "style="visibility: hidden; width:100%; height: auto;" onload="finalload()"> -->
+						<img srcset="images/1.jpg" alt="APA Smart main banner -1">
+						<!-- <div class="title">There are few picture so you can put here</div> -->
+					</picture>	
+					<picture>
+						<img srcset="images/2.jpg" alt="APA Smart main banner -1">
+						<!-- <div class="title">There are few picture so you can put here</div> -->
+					</picture>	
+					<picture>
+						<img srcset="images/3.jpg" alt="APA Smart main banner -1">
+						<!-- <div class="title">There are few picture so you can put here</div> -->
+					</picture>	
+					<picture>
+						<img srcset="images/4.jpg" alt="APA Smart main banner -1">
+						<!-- <div class="title">There are few picture so you can put here</div> -->
+					</picture>	
+				</div>
+			</section>
+			<section class="bg-gray" id="aboutus">
+				<article class="col-sm-10 text-center col-sm-offset-1">
+					<h1>About <strong>artist</strong></h1>
+					<br>
+					<div class="show">
+						<div class="text">
+							<p>Born in Jharkhand, <b>Vikram Kumar</b> is mostly a self taught artist. <b>Art</b> is a rejuvenating elixir which also helps us showcase our poetic temperament – this is beautifully reflected in his paintings. In the journey of his life – from Jharkhand to Delhi, Vikram has come a long way and his works of art are as much philosophy as art. He believes that emotions which otherwise may not <span style="font-family: sans-serif;">find</span> a suitable form of expression can be beautifully portrayed through intricate works of one’s imagination.</p>
+							<p>He is a Contemporary artist who also works as a Cartoonist and Social Worker. He is a founder member of Care Village Foundation and his artistic endeavours are more towards social causes – delving deep into the social psyche. In the lap of nature one can best look into his soul and his love for nature often does lead him to paint it on canvases as works of art.</p>
+							<br>
+						</div>
+						<a class="btn btn-stroked showmore"></a>
+					</div>
+				</article>
+			</section>
+			<section id="art-work" class="p-0">
+				<br>
+				<h1 align="center"><strong>Art</strong> works</h1>
+				<br>
+		        <ul class="thumbnail">
+		          <li ng-repeat="artworks in artwork">
+		            <img ng-src="{{artworks.Image}}" alt="">
+		              <div class="caption">
+		              	<small>{{artworks.lDate}}</small>
+		                <h3 class="title-name">{{artworks.TitleName}}</h3>
+		                <p>{{artworks.Description}}</p>
+		                <p><a class="lmore"><span>KNOW MORE</span></a></p>
+		            </div>
+		          </li>
+		        </ul>
+			</section>
+			<section id="activates" class="bg-gray">
+				<article class="col-sm-10 text-center col-sm-offset-1">
+					<h1>Other <strong>Projects</strong></h1>
+					<br>
+					<p style="font-size: 30px" class="font-weight-1">Coming Soon...</p>
+				</article>
+			</section>
+			<section id="gallery" class="text-center p-0">
+				<br>
+				<h1>Gallery</h1>
+				<br>
+				<div id="slideshow">
+					<ul class="controls">
+						<li class="control previous">
+							<a class="slick-prev" href="#" title="Previous">Previous</a>
+						</li>
+						<li class="control next">
+							<a class="slick-next" href="#" title="Next">Next</a>
+						</li>
+						<li class="control close">
+							<a href="#" title="Close">Close</a>
+						</li>
+					</ul>
+					<div class="current">
+						<div class="image"></div>
+						<p class="caption"></p>
+					</div>
+				</div>
+				<ul class="gallery">
+					<li><a href="images/photos/gal1.jpg" title="Banner Art Image"><img src="images/photos/thumb/gal1.jpg"></a></li>
+					<li><a href="images/photos/gal2.jpg" title="Banner Art Image"><img src="images/photos/thumb/gal2.jpg"></a></li>
+					<li><a href="images/photos/gal3.jpg" title="Banner Art Image"><img src="images/photos/thumb/gal3.jpg"></a></li>
+					<li><a href="images/photos/gal4.jpg" title="Banner Art Image"><img src="images/photos/thumb/gal4.jpg"></a></li>
+					<li><a href="images/photos/gal5.jpg" title="Banner Art Image"><img src="images/photos/thumb/gal5.jpg"></a></li>
+					<li><a href="images/photos/gal6.jpg" title="Banner Art Image"><img src="images/photos/thumb/gal6.jpg"></a></li>
+					<li><a href="images/photos/gal7.jpg" title="Banner Art Image"><img src="images/photos/thumb/gal7.jpg"></a></li>
+					<li><a href="images/photos/gal8.jpg" title="Banner Art Image"><img src="images/photos/thumb/gal8.jpg"></a></li>
+					<li><a href="images/photos/gal9.jpg" title="Banner Art Image"><img src="images/photos/thumb/gal9.jpg"></a></li>
+					<li><a href="images/photos/gal10.jpg" title="Banner Art Image"><img src="images/photos/thumb/gal10.jpg"></a></li>
+					<li><a href="images/photos/gal11.jpg" title="Banner Art Image"><img src="images/photos/thumb/gal11.jpg"></a></li>
+					<li><a href="images/photos/gal12.jpg" title="Banner Art Image"><img src="images/photos/thumb/gal12.jpg"></a></li>
+					<li><a href="images/photos/gal13.jpg" title="Banner Art Image"><img src="images/photos/thumb/gal13.jpg"></a></li>
+				</ul>
+			</section>
+		</div>
+		<footer id="contact">
+			<section class="text-center">
+				<h1>Contact</h1>
+				<article>
+					<p class="contact"><span>vikramart82@gmail.com</span><br class="visible-xs"><span class="hidden-xs">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <span>+91 - 9818468295</span></p>
+				</article>
+			</section>
+			<section class="bg-gray text-center pt-30 pb-20">
+				<p><span class="copyright">&copy;</span> 2016 Arts Maniac - All rights reserved.</p>
+			</section>
+		</footer>
+	</main>
+</body>
+</html>

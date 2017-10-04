@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html ng-app="routerApp">
+<head>
+	<meta charset="UTF-8">
+	<title>:: ARTS MANIAC ::</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="fonts/style.css">
+</head>
+<body>
+	<main class="home">
+		<header>
+			<nav>
+				<div class="logo small-logo col-sm-3 col-sm-offset-1">
+					<a href="#"><span class="color-brand">ARTS</span> MANIAC</a>
+				</div>
+				<ul class="col-sm-8">
+					<li class="active"><a href="">Home</a></li>
+					<li><a href="">ABOUT US</a></li>
+					<li><a href="">ARTS & GALLERY</a></li>
+					<li><a href="">FAQ</a></li>
+					<li><a href="">CONTACT US</a></li>
+				</ul>
+			</nav>
+		</header>
+		<div class="containt-wrap" ui-view>
+			
+		</div>
+		<footer>
+			<section class="text-center">
+				<h1><b>ARTS</b>MANIAC</h1>
+				<a href="">Home</a>
+				<a href="">ABOUTS US</a>
+				<a href="">ARTS & GALLERY</a>
+				<a href="">FAQ</a>
+				<a href="">CONTACT US</a>
+			</section>
+			<section class="bg-gray text-center pt30 pb20">
+				<p>COPYRIGHT @ 2016 - All rights reserved.</p>
+			</section>
+		</footer>
+	</main>
+	<script src="js/jquery.min.js"></script>
+	<script src="http://code.angularjs.org/1.2.13/angular.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+	<script type="text/javascript">
+		$(window).scroll(function() {    
+		    var scroll = $(window).scrollTop();
+		    if (scroll >= 150) {
+		        $("header").find(".small-logo").addClass("show-logo");
+		    } else {
+		        $("header").find(".small-logo").removeClass("show-logo");
+		    }
+		});
+	</script>
+	<script type="text/javascript">
+		var routerApp = angular.module('routerApp', ['ui.router']);
+
+		routerApp.config(function($stateProvider, $urlRouterProvider) {
+		    
+		    $urlRouterProvider.otherwise('/home');
+		    
+		    $stateProvider
+		        
+		        // HOME STATES AND NESTED VIEWS ========================================
+		        .state('home', {
+		            url: '/home',
+		            templateUrl: 'partial-home.html'
+		        })
+		        
+		        // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
+		        .state('about', {
+		            // we'll get to this in a bit       
+		        });
+		        
+		});
+	</script>
+</body>
+</html>
