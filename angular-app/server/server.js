@@ -21,7 +21,7 @@ app.use(bodyParser.json());
 app.get('/records', function (req, res) {
 	// console.log("i recevied")
 	db.records.find(function (err, docs){
-		console.log(docs);
+		// console.log(docs);
 		res.json(docs);
 	});
 
@@ -39,7 +39,7 @@ app.delete('/records/:id', function (req, res){
 // var tempFileName;
 var storage = multer.diskStorage({ //multers disk storage settings
 	destination: function (req, file, cb) {
-	    cb(null, './../client/uploads/');
+	    cb(null, './client/uploads/');
 	    db.records.insert({filename:tempFileName}, function(err, doc){
 			//res.json(doc);
 		})
