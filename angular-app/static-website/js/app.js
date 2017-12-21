@@ -1,4 +1,4 @@
-var app = angular.module("myapp", ['ui.router']);
+var app = angular.module("myapp", ['ui.router', 'ui.bootstrap']);
 // 'slickCarouse'
 app.config(function($stateProvider) {
   $stateProvider
@@ -7,21 +7,21 @@ app.config(function($stateProvider) {
       templateUrl:'../views/home.html',
       controller:'myCtrl as vm'
     })
-    .state('painting',{
-      url:'/painting',
-      templateUrl:'../views/painting.html'
-    })
+    // .state('painting',{
+    //   url:'/painting',
+    //   templateUrl:'../views/painting.html'
+    // })
 });      
 
-app.controller("myCtrl", function($scope, $http) {
-
+app.controller("myCtrl", function($scope,$uibModal) {
+   
     var vm = this;
     // home page
 
-    $http.get('/records').success(function(response){
-      console.log("working");
-      vm.records = response;
-    });
+    // $http.get('/records').success(function(response){
+    //   console.log("working");
+    //   vm.records = response;
+    // });
 
     vm.artworks = [
         {
@@ -50,63 +50,54 @@ app.controller("myCtrl", function($scope, $http) {
         },
     ],
 
+      vm.showModal = function(){
+          $uibModal.open({
+                templateUrl: '../views/painting-modal.html',
+                controller:'myClose',
+           })
+      }
 
 
-
-    
-      $('.slider').slick({
+      
+        $('.slider').slick({
           dots: true,
           infinite: false,
           speed: 700,
           autoplay: true,
           slidesToShow: 1
         });
-    
-    // $("nav").hide();
-
-    $(window).scroll(function() {  
-
-        var scroll = $(window).scrollTop();
-        if (scroll >= 170) {
-            $("header").find(".small-logo").addClass("show-logo");
-        } else {
-            $("header").find(".small-logo").removeClass("show-logo");
-        }
-         if (scroll >= 370) {
-            $("header").find(".small-logo").addClass("show-pics");
-        } else {
-            $("header").find(".small-logo").removeClass("show-pics");
-        }
-         
-    });
 
 
-    vm.openImage = function(fileName,index){
-      vm.fileIndex = index;
-      vm.fileName = fileName;
-    }
 
-    vm.nextImage = function(){
-      if(vm.records.length > vm.fileIndex){
-        vm.fileName = vm.records[++vm.fileIndex].filename;
-      }
-      else{
-        vm.fileIndex=0;
-        vm.fileName = vm.records[0].filename;
-      }
-    }
+    // vm.openImage = function(fileName,index){
+    //   vm.fileIndex = index;
+    //   vm.fileName = fileName;
+    // }
 
-    vm.previousImage = function(){
-      if(vm.fileIndex >0){
-        vm.fileName = vm.records[--vm.fileIndex].filename;  
-      }
-      else{
-        vm.fileIndex=vm.records.length-1;
-        vm.fileName = vm.records[vm.fileIndex].filename;
-      }
-    }
+    // vm.nextImage = function(){
+    //   if(vm.records.length > vm.fileIndex){
+    //     vm.fileName = vm.records[++vm.fileIndex].filename;
+    //   }
+    //   else{
+    //     vm.fileIndex=0;
+    //     vm.fileName = vm.records[0].filename;
+    //   }
+    // }
 
-    $(window).load(function() {
-      $(".slider").removeClass("loading");;
-    });
-});  
+    // vm.previousImage = function(){
+    //   if(vm.fileIndex >0){
+    //     vm.fileName = vm.records[--vm.fileIndex].filename;  
+    //   }
+    //   else{
+    //     vm.fileIndex=vm.records.length-1;
+    //     vm.fileName = vm.records[vm.fileIndex].filename;
+    //   }
+    // }
+});
+app.controller("myClose", function($scope,$uibModalInstance) {
+    var vm = this;
+    vm.closeModal = function(){
+        $uibModalInstance.dismiss('cancel');
+    };
+});
+
