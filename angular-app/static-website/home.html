@@ -1,0 +1,89 @@
+<!doctype html>
+<html ng-app="ui.bootstrap.demo">
+  <head>
+	<script src="js/min/angular.min.js"></script>
+    <!-- // <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script> -->
+	// <script src="js/min/ui-bootstrap-tpls-2.5.0.js"></script>
+    <!-- // <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script> -->
+    <script>
+    	angular.module('ui.bootstrap.demo', ['ui.bootstrap']);
+		angular.module('ui.bootstrap.demo').controller('ModalDemoCtrl', function ($uibModal, $log, $document) {
+		  var vm = this;
+		  vm.items = ['item1', 'item2', 'item3'];
+
+		  vm.animationsEnabled = true;
+
+		  vm.open = function (size, parentSelector) {
+		    var parentElem = parentSelector ? 
+		      angular.element($document[0].querySelector('.modal-demo ' + parentSelector)) : undefined;
+		    var modalInstance = $uibModal.open({
+		      animation: vm.animationsEnabled,
+		      ariaLabelledBy: 'modal-title',
+		      ariaDescribedBy: 'modal-body',
+		      templateUrl: 'myModalContent.html',
+		      controllerAs: 'vm',
+		      size: size,
+		      appendTo: parentElem,
+		      resolve: {
+		        items: function () {
+		          return vm.items;
+		        }
+		      }
+		    });
+
+		    modalInstance.result.then(function (selectedItem) {
+		      vm.selected = selectedItem;
+		    }, function () {
+		      $log.info('Modal dismissed at: ' + new Date());
+		    });
+		  };
+
+		 
+		});
+
+		// Please note that $uibModalInstance represents a modal window (instance) dependency.
+		// It is not the same as the $uibModal service used above.
+
+		angular.module('ui.bootstrap.demo').controller('ModalInstanceCtrl', function ($uibModalInstance, items) {
+		  var vm = this;
+		  vm.items = items;
+		  vm.selected = {
+		    item: vm.items[0]
+		  };
+
+		  vm.ok = function () {
+		    $uibModalInstance.close(vm.selected.item);
+		  };
+
+		  vm.cancel = function () {
+		    $uibModalInstance.dismiss('cancel');
+		  };
+		});
+
+		// Please note that the close and dismiss bindings are from $uibModalInstance.
+
+		
+    </script>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+
+<div ng-controller="ModalDemoCtrl as vm">
+    <script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header">
+            <h3 class="modal-title">I'm a modal!</h3>
+        </div>
+        <div class="modal-body">hi</div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="vm.ok()">OK</button>
+            <button class="btn btn-warning" type="button" ng-click="vm.cancel()">Cancel</button>
+        </div>
+    </script>
+
+    <button type="button" class="btn btn-default" ng-click="vm.open()">Open me!</button>
+    <button type="button" class="btn btn-default" ng-click="vm.open('lg')">Large modal</button>
+    <button type="button" class="btn btn-default" ng-click="vm.open('sm')">Small modal</button>
+    
+</div>
+  </body>
+</html>
