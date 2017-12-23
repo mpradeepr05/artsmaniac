@@ -1,20 +1,11 @@
 <div class="modal-header">
-    <h3 class="modal-title">Modal title</h3>
+    <!-- <h3 class="modal-title">Modal title</h3> -->
+    <a class="close" ng-click="vm.closeModal()"></a>
 </div>
 <div class="modal-body">
-    <ul class="thumbnail">
+    <ul class="artwork-gallery">
       <li ng-repeat="artwork in vm.artworks">
-        <img ng-src="{{artwork.Image}}" alt="">
-          <div class="caption">
-          	<!-- <small>{{artwork.lDate}}</small> -->
-            <h3 class="title-name">{{artwork.TitleName}}</h3>
-            <!-- <p>{{artwork.Description}}</p> -->
-            <p><a class="lmore" ng-click="vm.showModal('lg')">KNOW MORE</a></p>
-        </div>
+        <img ng-src="images/{{artwork.Image}}" alt="">
       </li>
     </ul>
-</div>
-<div class="modal-footer">
-    <button class="btn btn-primary" ng-click="ok()">OK</button>
-    <button class="btn btn-warning" ng-click="vm.closeModal()">Cancel</button>
 </div>

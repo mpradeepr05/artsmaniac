@@ -43,7 +43,7 @@
 
 #slideshow .controls .next { right: 0; }
 
-#slideshow .controls .close {
+#slideshow .controls li.close {
   right: -88px;
   top: -84px;
 }
@@ -63,26 +63,29 @@
 #slideshow .controls .next a{margin-right: 50px;}
 #slideshow .controls .previous:hover a{transform: translate(-15px,-40px);}
 #slideshow .controls .next:hover a{transform: translate(15px,-40px);}
-#slideshow .controls .close a {
+a.close {
     height:150px;
     width:150px;
     transition: 0.3s;
     border-radius: 100%;
-    background: rgba(255, 255, 255, 0.11);
+    background: rgba(0, 0, 0, 0.7);
+    right: -80px;
+    top: -80px;
+    position: fixed;
+    cursor:pointer;
 }
-#slideshow .controls .close a:before, #slideshow .controls .close a:after{
+a.close:before, a.close:after{
     content: '';
-    height: 18%;
+    height: 25px;
     width: 1px;
     background: #fff;
-    left: 39px;
-    top: 94px;
+    left: 45px;
+    top: 96px;
     position: absolute;
     transition: 0.3s;
     transform: rotate(45deg);
 }
-#slideshow .controls .close a:after{transform: rotate(-45deg);}
-#slideshow .controls .close a:hover{}
+a.close:after{transform: rotate(-45deg);}
 #footer {
   background-color: #f1eeee;
   bottom: 0;

@@ -7,53 +7,121 @@ app.config(function($stateProvider) {
       templateUrl:'../views/home.html',
       controller:'myCtrl as vm'
     })
-    // .state('painting',{
-    //   url:'/painting',
-    //   templateUrl:'../views/painting.html'
-    // })
-});      
+});
+
+
+var menuUl = document.getElementById("main-menu");
+  var mHeight = document.getElementById("nav").clientHeight;
+  function scrollToEele(id) {
+    // vm.closeModal();
+    var secId = document.getElementById(id).offsetTop;
+    window.scroll({top: secId - mHeight, left: 0, behavior: 'smooth'});
+  }
+  window.onscroll = function(){
+    var scrollPosY = window.pageYOffset | document.body.scrollTop;
+    var x = menuUl.querySelectorAll('li');
+    for (var i = 0; i < x.length; i++) {
+      var picId = x[i].querySelector('a').getAttribute('data');
+      var offsetTop = document.getElementById(picId).offsetTop;
+      var secHeight = document.getElementById(picId).clientHeight;
+      if (offsetTop - scrollPosY - mHeight <= 3){
+        x[i].className = "active";
+      }
+      else{x[i].className = "";}
+      if (offsetTop - scrollPosY - mHeight + secHeight <= 0){
+        x[i].className = "";
+      }
+      // console.log(picId);
+    };
+
+    // header
+    // if (scrollPosY >= 3){
+    //   $("header").find(".small-logo").addClass("show-logo");
+    // }
+
+  }
+
+  $(window).scroll(function() {  
+
+      var scroll = $(window).scrollTop();
+      if (scroll >= 170) {
+          $("header").find(".small-logo").addClass("show-logo");
+      } else {
+          $("header").find(".small-logo").removeClass("show-logo");
+      }
+       if (scroll >= 370) {
+          $("header").find(".small-logo").addClass("show-pics");
+      } else {
+          $("header").find(".small-logo").removeClass("show-pics");
+      }
+       
+  });
+
+
 
 app.controller("myCtrl", function($scope,$uibModal) {
    
     var vm = this;
-    // home page
-
-    // $http.get('/records').success(function(response){
-    //   console.log("working");
-    //   vm.records = response;
-    // });
-
     vm.artworks = [
         {
-          "Image" : "images/2.jpg",
-          "lDate" : "Latest Date",
-          "TitleName" : "Paintings",
-          "Description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, soluta, eligendi doloribus sunt minus amet sit debitis repellat. Consectetur, culpa itaque odio similique suscipit"
+          "Image" : "images/painting/artsmaniac_vikram_2.jpg",
+          "TitleName" : "Paintings"
         },
         {
           "Image" : "images/comic.jpg",
-          "lDate" : "Latest Date",
           "TitleName" : "Comic",
-          "Description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, soluta, eligendi doloribus sunt minus amet sit debitis repellat. Consectetur, culpa itaque odio similique suscipit"
         },
         {
           "Image" : "images/drawing.jpg",
-          "lDate" : "Latest Date",
           "TitleName" : "Drawing",
-          "Description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, soluta, eligendi doloribus sunt minus amet sit debitis repellat. Consectetur, culpa itaque odio similique suscipit"
         },
         {
           "Image" : "images/misl.jpg",
-          "lDate" : "Latest Date",
           "TitleName" : "Miscellaneous",
-          "Description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, soluta, eligendi doloribus sunt minus amet sit debitis repellat. Consectetur, culpa itaque odio similique suscipit"
         },
+    ]
+
+    vm.projects = [
+
+      {"filename" : "artsmaniac_vikram_1.jpg"},
+      {"filename" : "artsmaniac_vikram_2.jpg"},
+      {"filename" : "artsmaniac_vikram_3.jpg"},
+      {"filename" : "artsmaniac_vikram_4.jpg"},
+      {"filename" : "artsmaniac_vikram_5.jpg"},
+      {"filename" : "artsmaniac_vikram_6.jpg"},
     ],
 
-      vm.showModal = function(){
+    vm.galleries = [
+
+      {"filename" : "artsmaniac_vikram_gal1.jpg"},
+      {"filename" : "artsmaniac_vikram_gal2.jpg"},
+      {"filename" : "artsmaniac_vikram_gal3.jpg"},
+      {"filename" : "artsmaniac_vikram_gal4.jpg"},
+      {"filename" : "artsmaniac_vikram_gal5.jpg"},
+      {"filename" : "artsmaniac_vikram_gal6.jpg"},
+      {"filename" : "artsmaniac_vikram_gal7.jpg"},
+      {"filename" : "artsmaniac_vikram_gal8.jpg"},
+      {"filename" : "artsmaniac_vikram_gal10.jpg"},
+      {"filename" : "artsmaniac_vikram_gal11.jpg"},
+      {"filename" : "artsmaniac_vikram_gal12.jpg"},
+      {"filename" : "artsmaniac_vikram_gal13.jpg"},
+      {"filename" : "artsmaniac_vikram_gal14.jpg"},
+      {"filename" : "artsmaniac_vikram_gal15.jpg"},
+      {"filename" : "artsmaniac_vikram_gal16.jpg"},
+    ]
+
+      vm.showModal = function(category){
           $uibModal.open({
                 templateUrl: '../views/painting-modal.html',
-                controller:'myClose',
+                controller:'myClose as vm',
+                resolve :{
+                  categoryType:
+                      ['$q', function ($q) {
+                        var deferred = $q.defer();
+                        deferred.resolve(category);
+                        return deferred.promise;
+                    }],
+                }
            })
       }
 
@@ -69,35 +137,117 @@ app.controller("myCtrl", function($scope,$uibModal) {
 
 
 
-    // vm.openImage = function(fileName,index){
-    //   vm.fileIndex = index;
-    //   vm.fileName = fileName;
-    // }
+    vm.openImage = function(fileName,index){
+      vm.fileIndex = index;
+      vm.fileName = fileName;
+    }
 
-    // vm.nextImage = function(){
-    //   if(vm.records.length > vm.fileIndex){
-    //     vm.fileName = vm.records[++vm.fileIndex].filename;
-    //   }
-    //   else{
-    //     vm.fileIndex=0;
-    //     vm.fileName = vm.records[0].filename;
-    //   }
-    // }
+    vm.nextImage = function(){
+      if(vm.galleries.length > vm.fileIndex){
+        vm.fileName = vm.galleries[++vm.fileIndex].filename;
+      }
+      else{
+        vm.fileIndex=0;
+        vm.fileName = vm.galleries[0].filename;
+      }
+    }
 
-    // vm.previousImage = function(){
-    //   if(vm.fileIndex >0){
-    //     vm.fileName = vm.records[--vm.fileIndex].filename;  
-    //   }
-    //   else{
-    //     vm.fileIndex=vm.records.length-1;
-    //     vm.fileName = vm.records[vm.fileIndex].filename;
-    //   }
-    // }
+    vm.previousImage = function(){
+      if(vm.fileIndex >0){
+        vm.fileName = vm.galleries[--vm.fileIndex].filename;  
+      }
+      else{
+        vm.fileIndex=vm.galleries.length-1;
+        vm.fileName = vm.galleries[vm.fileIndex].filename;
+      }
+    }
+
+
 });
-app.controller("myClose", function($scope,$uibModalInstance) {
-    var vm = this;
+app.controller("myClose", function($scope,$uibModalInstance,categoryType) {
+    console.log('categoryType',categoryType);
+    var vm = this;  
     vm.closeModal = function(){
         $uibModalInstance.dismiss('cancel');
-    };
+    }
+
+    switch(categoryType){
+      case 'Paintings':
+        vm.artworks = [
+          {"Image" : "painting/artsmaniac_vikram_Jai_Jawan_Kisan.JPG"},
+          {"Image" : "painting/artsmaniac_vikram_portrait_apoorva.jpg"},
+          {"Image" : "painting/artsmaniac_vikram_towards_yakshi.jpg"},
+          {"Image" : "painting/artsmaniac_vikram_1.jpg"},
+          {"Image" : "painting/artsmaniac_vikram_2.jpg"},
+          {"Image" : "painting/artsmaniac_vikram_3.jpg"},
+          {"Image" : "painting/artsmaniac_vikram_4.jpg"},
+          {"Image" : "painting/artsmaniac_vikram_5.jpg"},
+          {"Image" : "painting/artsmaniac_vikram_6.jpg"},
+        ]
+        break;
+      case 'Comic':
+        vm.artworks = [
+          {"Image" : "comic/artsmaniac_vikram_gotya2.jpg"},
+          {"Image" : "comic/artsmaniac_vikram_gotya5.jpg"},
+          {"Image" : "comic/artsmaniac_vikram_gotya6.jpg"},
+          {"Image" : "comic/artsmaniac_vikram_gotya7.jpg"},
+          {"Image" : "comic/artsmaniac_vikram_gotya8.jpg"},
+          {"Image" : "comic/artsmaniac_vikram_gotya9.jpg"},
+          {"Image" : "comic/artsmaniac_vikram_gotya10.jpg"},
+          {"Image" : "comic/artsmaniac_vikram_gotya11.jpg"},
+          {"Image" : "comic/artsmaniac_vikram_gotya12.jpg"},
+          {"Image" : "comic/artsmaniac_vikram_gotya13.jpg"},
+          {"Image" : "comic/artsmaniac_vikram_gotya14.jpg"},
+          {"Image" : "comic/artsmaniac_vikram_mela.jpg"},
+          {"Image" : "comic/artsmaniac_vikram_page1.jpg"},
+          {"Image" : "comic/artsmaniac_vikram_page2.jpg"},
+          {"Image" : "comic/artsmaniac_vikram_page3.jpg"},
+          {"Image" : "comic/artsmaniac_vikram_page4.jpg"},
+          {"Image" : "comic/artsmaniac_vikram_page5.jpg"},
+          {"Image" : "comic/artsmaniac_vikram_page6.jpg"},
+        ]
+        break;
+      case 'Drawing':
+        vm.artworks = [
+          
+        ]
+        break;
+      case 'Miscellaneous':
+        vm.artworks = [
+          {"Image" : "miscellaneous/artsmaniac_vikram_1.jpg"},
+          {"Image" : "miscellaneous/artsmaniac_vikram_2.jpg"},
+          {"Image" : "miscellaneous/artsmaniac_vikram_3.jpg"},
+          {"Image" : "miscellaneous/artsmaniac_vikram_4.jpg"},
+          {"Image" : "miscellaneous/artsmaniac_vikram_5.jpg"},
+          {"Image" : "miscellaneous/artsmaniac_vikram_6.jpg"},
+          {"Image" : "miscellaneous/artsmaniac_vikram_7.jpg"},
+          {"Image" : "miscellaneous/artsmaniac_vikram_8.jpg"},
+          {"Image" : "miscellaneous/artsmaniac_vikram_9.jpg"},
+          {"Image" : "miscellaneous/artsmaniac_vikram_10.jpg"},
+          {"Image" : "miscellaneous/artsmaniac_vikram_11.jpg"},
+        ]
+      default:
+        break;
+    }
+    // vm.artworks = [
+    //     {"Image" : "Gotya2.jpg"},
+    //     {"Image" : "Gotya5.jpg"},
+    //     {"Image" : "Gotya6.jpg"},
+    //     {"Image" : "Gotya7.jpg"},
+    //     {"Image" : "Gotya8.jpg"},
+    //     {"Image" : "Gotya9.jpg"},
+    //     {"Image" : "Gotya10.jpg"},
+    //     {"Image" : "Gotya11.jpg"},
+    //     {"Image" : "Gotya12.jpg"},
+    //     {"Image" : "Gotya13.jpg"},
+    //     {"Image" : "Gotya14.jpg"},
+    //     {"Image" : "Mela.jpg"},
+    //     {"Image" : "Page1.jpg"},
+    //     {"Image" : "Page2.jpg"},
+    //     {"Image" : "Page3.jpg"},
+    //     {"Image" : "Page4.jpg"},
+    //     {"Image" : "Page5.jpg"},
+    //     {"Image" : "Page6.jpg"},
+    // ]
 });
 

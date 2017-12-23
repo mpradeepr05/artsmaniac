@@ -235,6 +235,9 @@ nav li {
     padding-right: 25px;
 }
 nav li a{color: #000; position: relative; cursor:pointer; letter-spacing: 2px; text-decoration: none !important; font-size: 13px; text-transform: uppercase;}
+@media (max-width: 767px) {
+    nav li a{color: #fff;}
+}
 nav ul li a:before, h1:before {
     content: "";
     top: -10px;
@@ -266,7 +269,7 @@ nav li a.active{
     left: 45%;
     overflow: hidden;
     margin: 20px auto 9px auto;
-    background: url("../images/logo.jpg") 0 0 no-repeat;
+    background: url("../images/artsmaniac_vikram_logo.jpg") 0 0 no-repeat;
     -moz-background-size: contain;
     -o-background-size: contain;
     -webkit-background-size: contain;
@@ -288,10 +291,13 @@ nav li a.active{
 .mobile-nav-input:checked ~ .mobile-nav:after{ width: 30px; top: -2px; transform: rotate(45deg);}
 .mobile-nav-input:checked ~ .mobile-nav:after{transform: rotate(-45deg);}
 .mobile-nav-input:checked ~ .mobile-nav{ height: 0px;}
-.mobile-nav-input:checked ~ .main-menu{display: block !important; background: #fff;}
+.mobile-nav-input:checked ~ .main-menu{display: block !important;
+@media (max-width: 767px) {background:rgba(0,0,0,0.8);}
+}
 .pics{background: #ef0027; padding: 0px; border: 4px solid #ffffff; box-shadow: -4px 4px 0px 5px rgba(0, 0, 0, 0.05); border-radius: 150px;}
 .small-logo a{font-size: 17px; padding: 32px 40px 0 0; position: relative;margin-top: 0px;}
-.small-logo a:before{height:39px;width: 80px; position: relative; float: left; margin: 0; top:-10px; left: 10px;}
+.small-logo a:before{height:39px;width: 80px; position: relative; float: left; margin: 0; top:-10px; left: 30px;}
+.small-logo a span{margin-left: 20px;}
 .home .small-logo a{transform: translateY(-50px); transition: 0.3s; opacity: 0;}
 .home .small-logo.show-logo a{transform: translateY(0px); opacity: 1;}
 .banner{min-height: 500px;}
@@ -346,27 +352,62 @@ nav li a.active{
         background-position: bottom;
         background-size: contain;
         }
+        @media (max-width: 767px) {
+            padding:15px 0px; 
+        }
         article{
             background: #ffffffa6;
             padding: 40px 60px;
-        }
-        h1{
-            margin-bottom: 0px;
-            margin-left: -50px;
-            margin-right: -55px;
+            position:relative;
+            margin:10px 50px;
+            @media (max-width: 767px) {
+                margin:0px 15px;
+                padding: 20px;
+            }
         }
     }
 .gallery{
-    column-count: 4;
+    column-count: 3;
     column-gap: 1px;
     padding:0px;
-    width: 85%;
-    float: right;
     list-style: none;
+    @media (min-width: 768px) {
+        width: 85%;
+        float: right;
+    }
     @media (max-width:767px){
        padding:0px 15px; 
     }
 }
+
+.other-project{
+    padding:0;
+    article{
+        @media (max-width:767px){
+            p, h3{
+                padding:15px;
+            }
+        }
+        @media (min-width: 768px) {
+            width: 85%;
+            float: right;
+        }
+        .content{
+            width:95%;
+            text-align:justify;
+        }
+        ul{
+        column-count: 3;
+        column-gap: 0px;
+        padding:0px;
+        list-style: none;
+            @media (max-width:767px){
+                padding:0px 15px;
+            }
+        }
+    }
+}
+
 .gallery li{
     display: inline-block;
     margin: 0 0 1px;
@@ -452,7 +493,7 @@ footer a{color: #666; letter-spacing: 1px; margin:20px; font-size: 13px;}
     .pics {width: 80px;}
     .signature{width: 200px}
     .banner{height: auto !important;}
-    nav ul {margin-top: 31px; padding-top: 20px !important; padding-bottom: 1px !important;box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    nav ul {margin-top: 31px; padding-top: 20px !important; padding-bottom: 1px !important;
     width: 200px;
     height: 100%;
     list-style: none;
@@ -467,25 +508,32 @@ footer a{color: #666; letter-spacing: 1px; margin:20px; font-size: 13px;}
     .contact{ font-size: 20px;}
 
 }
+h1:not(.artist){text-align:center;margin: 0; padding-top:20px; margin-bottom:50px;}
 
-h1{
-    display: inline-block;
-    transform: rotate(-90deg);
-    float: left;
-    position: sticky;
-    top: 250px;
-    margin-left: -64px;
-    margin-right: -260px;
-    text-transform: uppercase;
-    letter-spacing: 7px;
-    margin-top: 150px;
-    margin-bottom: 160px;
-    width: 320px;
-    text-align: center;
-    &.right{
-        margin-right: 0px;
-        float: right;
+h1.artist{
+    @media (min-width: 768px) {
+        display: inline-block;
+        transform: rotate(-90deg);
+        float: left;
+        position: sticky;
+        top: 250px;
+        margin-left: -64px;
+        margin-right: -260px;
+        text-transform: uppercase;
+        letter-spacing: 7px;
+        margin-top: 150px;
+        margin-bottom: 160px;
+        width: 320px;
+        text-align: center;
+        &.right{
+            margin-right: 0px;
+            float: right;
+        }
     }
+    @media (max-width: 767px) {
+        text-align:center;margin: 0; padding-top:20px; margin-bottom:30px;
+    }
+    
 }
 
 #art-work{
@@ -499,12 +547,14 @@ h1{
     column-gap: 10px;
     padding:0px;
     margin: 0;
-    width: 85%;
-    float: right;
     list-style: none;
+    @media (min-width: 768px) {
+        width: 85%;
+        float: right;
+    }
     @media (max-width:767px){
         display: block;
-        padding:0px 15px;
+        padding:0px;
         column-count: 1;
     }
     li{
@@ -518,7 +568,7 @@ h1{
        }
        
        img{
-        height: 370px;
+        height: 330px;
         max-width: inherit;
         min-width: 100%;
         /*transform: translateX(-50%);*/
@@ -526,12 +576,14 @@ h1{
         transition:0.5s;
         position: relative;
         @media (max-width:767px){
-            height: 170px;
+            height: 220px;
         }
        }
        &:hover img{
-        transform: translateX(300px);
-        transform-origin: left;
+        @media (min-width:768px){
+                transform: translateX(300px);
+                transform-origin: left;
+            }
        }
        .caption {
         padding: 35px 25px;
@@ -546,13 +598,22 @@ h1{
         height: 100%;
         width: 300px;
         @media (max-width:767px){
-            padding: 25px 20px;
-            padding-bottom: 100px;
-        
+            padding: 0px 20px;
+            padding-bottom:5px;
+            transform: translateX(0px);
+            position:relative;
+            width:100%;
+            background:rgba(41, 41, 44, 0.7);
+            text-align: center;
+                p{
+                    margin-top:0px;
+                }
             }
         }
         &:hover .caption{
-            transform: translateX(0px);
+            @media (min-width:768px){
+                transform: translateX(0px);
+            }
         }
         .title-name{
             text-transform: uppercase;
@@ -567,52 +628,102 @@ h1{
             font-size: 13px;
             letter-spacing: 4px;
             border-bottom: 1px #ffffff75 solid;
+            cursor:pointer;
         }
     }
 }
 
 
+.artwork-gallery{
+    column-count: 3;
+    column-gap: 15px;
+    padding:15px;
+    list-style: none;
+    width: 98%;
+    margin:15px auto;
+    @media (max-width:767px){
+       padding:0px 15px; 
+       column-count: 1;
+    }
+    li{
+        display: inline-block;
+        margin: 0 0 15px;
+        width: 100%;
+        transition: 0.3s;
+        padding: 20px;
+        background: #fff;
+        border-radius: 3px;
+    }
+}
+
 
 // modal-dialog
+.modal-open {
+    overflow: hidden;
+    .modal {
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+}
 .modal {
     display: none;
     overflow: hidden;
     position: fixed;
-    top: 84px;
+    top: 0px;
     right: 0;
     bottom: 0;
     left: 0;
     z-index: 1050;
     -webkit-overflow-scrolling: touch;
     outline: 0;
-    transition: transform 0.3s ease-out;
+    transition: 0.3s ease-out;
+    overflow: auto;
 }
 .fade {
     opacity: 0;
+    transition:0.3s ease-out;
 }
 
 .modal-dialog{
     position: relative;
     left: 0;
-    top:0;
+    top:100%;
     margin-top: 0px;
     margin-bottom: 0px;
-    transform: translateY(50%) !important;
-    transition: transform 0.3s ease-out;
+    // transform: translateY(100%) !important;
+    transition:0.3s ease-out;
     right: 0;
 }
 
 
 .modal.in .modal-dialog {
-    transform: translateY(0) !important;
+    // transform: translateY(0) !important;
+    top:0;
 }
 
 .modal-content {
     position: relative;
-    background-color: #f6f6f6;
-    border: 1px solid #f6f6f6;
     background-clip: padding-box;
     outline: 0;
+    .modal-body{
+        &:after{
+            content: " ";
+            display: table;
+            clear:both;
+        }
+    }
+    .modal-footer{
+        &:after{
+            content: " ";
+            display: table;
+            clear:both;
+        }
+    }
+    .modal-header{
+        .close{
+
+        }
+    }
 }
 
 .modal-backdrop.fade {
@@ -623,23 +734,19 @@ h1{
     opacity: 1;
 }
 .modal-backdrop {
-    background-color: #d4d4d4;
+    background-color: #000;
 }
 .modal-backdrop {
     position: fixed;
-    top: 84px;
+    top: 0px;
     right: 0;
     bottom: 0;
     left: 0;
     z-index: 1040;
 }
-.modal-open {
-    overflow: hidden;
-}
+
 .modal-backdrop.in {
-    opacity: 0.5;
+    opacity: 0.8;
     filter: alpha(opacity=50);
 }
-.modal-backdrop.in {
-    opacity: 0.95;
-}
+  

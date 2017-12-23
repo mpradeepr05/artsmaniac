@@ -6,87 +6,66 @@
 			<img src="images/signature.png" width="300" class="signature">
 			<br>
 			<br>
-			<img src="images/pics.png" class="pics" width="150" style="filter:blur(10px)">
+			<img src="images/pics.png" class="pics" width="150">
 			<h3>Creativity takes courage</h3>
 			<h4>"It always seems<br class="hidden-xs"> impossible until it’s done” </h4>
 			<br class="visible-xs">
 		</div>
 		<!--banner-->
-		<div class="col-sm-8 slider loading" id="abc">
+		<div class="col-sm-8 slider" id="abc">
 			<picture style="background: #5d5d5d">
-				<img srcset="images/1.jpg" alt="APA Smart main banner -1">
+				<img srcset="images/artsmaniac_vikram_1.jpg" alt="artsmaniac vikram 1">
 			</picture>	
 			<picture>
-				<img srcset="images/2.jpg" alt="APA Smart main banner -1">
+				<img srcset="images/artsmaniac_vikram_2.jpg" alt="artsmaniac vikram 2">
 			</picture>	
 			<picture>
-				<img srcset="images/3.jpg" alt="APA Smart main banner -1">
+				<img srcset="images/artsmaniac_vikram_3.jpg" alt="artsmaniac vikram 3">
 			</picture>	
 			<picture>
-				<img srcset="images/4.jpg" alt="APA Smart main banner -1">
+				<img srcset="images/artsmaniac_vikram_4.jpg" alt="artsmaniac vikram 4">
 			</picture>	
 		</div>
 	</section>
 	<section class="bg-gray" id="aboutus">
-		<div class="col-sm-2"><h1>About </h1></div>
-		<article class="col-sm-8">
+		<article>
+			<h1>About <strong>artist</strong></h1>
 			<div class="text text-justify">
 				<p>Born in Jharkhand, <b>Vikram Kumar</b> is mostly a self taught artist. <b>Art</b> is a rejuvenating elixir which also helps us showcase our poetic temperament – this is beautifully reflected in his paintings. In the journey of his life – from Jharkhand to Delhi, Vikram has come a long way and his works of art are as much philosophy as art. He believes that emotions which otherwise may not <span style="font-family: sans-serif;">find</span> a suitable form of expression can be beautifully portrayed through intricate works of one’s imagination.<br><br>
 				He is a Contemporary artist who also works as a Cartoonist and Social Worker. He is a founder member of Care Village Foundation and his artistic endeavours are more towards social causes – delving deep into the social psyche. In the lap of nature one can best look into his soul and his love for nature often does lead him to paint it on canvases as works of art.</p>
 				<br>
 			</div>
 		</article>
-		<div class="col-sm-2"><h1 class="right"><strong>artist</strong></h1></div>
 	</section>
 	<section id="art-work" class="p-0">
-		<h1><strong>Art</strong> works</h1>
+		<h1 class="artist"><strong>Art</strong> works</h1>
         <ul class="thumbnail">
           <li ng-repeat="artwork in vm.artworks">
             <img ng-src="{{artwork.Image}}" alt="">
               <div class="caption">
-              	<!-- <small>{{artwork.lDate}}</small> -->
                 <h3 class="title-name">{{artwork.TitleName}}</h3>
-                <!-- <p>{{artwork.Description}}</p> -->
-                <p><a class="lmore" ng-click="vm.showModal('lg')">KNOW MORE</a></p>
+                <p><a class="lmore" ng-click="vm.showModal(artwork.TitleName)">MORE</a></p>
             </div>
           </li>
         </ul>
 	</section>
-	<section id="activates" class="bg-gray">
-		<h1>Other <strong>Projects</strong></h1>
-		<article class="col-sm-10 text-center col-sm-offset-1">
-			<br>
-			<p style="font-size: 30px" class="font-weight-1">Coming Soon...</p>
+	<section id="activates" class="bg-gray other-project">
+		<h1 class="artist">Other <strong>Projects</strong></h1>
+		<article>
+			<div class="content">
+				<h3>Rainbow Village – Sarhetta, Alwar, Rajasthan</h3>
+				<p>Kansai Nerolac Paints Ltd, one of India’s leading and most innovative paint companies, embarked on an initiative to spread the message of healthy living by taking up the task to transform the Sarhetta village of Alwar, Rajasthan. In association with Neemrana Group of Hotels, Kansai Nerolac painted the village with their range of healthy home paints to make the village a happy place.</p>
+				<p>Neemrana and Nerolac, with the help of renowned artist Neeraj Goswami, young artists Vikram Kumar and Swapna Maini painted more than 400 households, aanganwadi and two schools in bright, vibrant colours as a part of this noble initiative, spanning across 10 days. Painting at Sarhetta saw large-scale public participation, where all the villagers came together to paint their own vicinity, taking ownership of their own happiness.</p>
+			</div>
+			<ul>
+				<li ng-repeat="project in vm.projects">
+					<img src="images/other-project/{{project.filename}}">
+				</li>
+			</ul>
 		</article>
 	</section>
 	<section id="gallery" class="text-center p-0">
-		<h1>Gallery</h1>
-		<!-- <div id="slideshow" ng-class="{'show-zoom': vm.fileName}" ng-if="vm.fileName">
-			<ul class="controls">
-				<li class="control previous">
-					<a  ng-click="vm.previousImage()" class="slick-prev" href="#" title="Previous">Previous</a>
-				</li>
-				<li class="control next">
-					<a ng-click="vm.nextImage()"class="slick-next" href="#" title="Next">Next</a>
-				</li>
-				<li class="control close">
-					<a href="#" title="Close" ng-click="vm.fileName=''">Close</a>
-				</li>
-			</ul>
-			<div class="current">
-
-				<div class="image">
-					<img src="../uploads/{{vm.fileName}}">
-				</div>
-				<p class="caption"></p>
-			</div>
-		</div> -->
-
-		<!-- <ul class="gallery">
-			<li ng-repeat="record in vm.records">
-			  	<img ng-click="vm.openImage(record.filename,$index)" src="../uploads/{{record.filename}}">
-			</li>
-		</ul> -->
+		<h1 class="artist">Gallery</h1>
 		<div id="slideshow" ng-class="{'show-zoom': vm.fileName}" ng-if="vm.fileName">
 			<ul class="controls">
 				<li class="control previous">
@@ -96,7 +75,7 @@
 					<a ng-click="vm.nextImage()"class="slick-next" href="#" title="Next">Next</a>
 				</li>
 				<li class="control close">
-					<a href="#" title="Close" ng-click="vm.fileName=''">Close</a>
+					<a href="#" title="Close" class="close" ng-click="vm.fileName=''">Close</a>
 				</li>
 			</ul>
 			<div class="current">
@@ -108,19 +87,9 @@
 			</div>
 		</div>
 		<ul class="gallery">
-			<li><img ng-click="vm.openImage(record.filename,$index)" src="images/photos/thumb/gal1.jpg"></li>
-			<li><img ng-click="vm.openImage(record.filename,$index)" src="images/photos/thumb/gal2.jpg"></li>
-			<li><img ng-click="vm.openImage(record.filename,$index)" src="images/photos/thumb/gal3.jpg"></li>
-			<li><img ng-click="vm.openImage(record.filename,$index)" src="images/photos/thumb/gal4.jpg"></li>
-			<li><img ng-click="vm.openImage(record.filename,$index)" src="images/photos/thumb/gal5.jpg"></li>
-			<li><img ng-click="vm.openImage(record.filename,$index)" src="images/photos/thumb/gal6.jpg"></li>
-			<li><img ng-click="vm.openImage(record.filename,$index)" src="images/photos/thumb/gal7.jpg"></li>
-			<li><img ng-click="vm.openImage(record.filename,$index)" src="images/photos/thumb/gal8.jpg"></li>
-			<li><img ng-click="vm.openImage(record.filename,$index)" src="images/photos/thumb/gal9.jpg"></li>
-			<li><img ng-click="vm.openImage(record.filename,$index)" src="images/photos/thumb/gal10.jpg"></li>
-			<li><img ng-click="vm.openImage(record.filename,$index)" src="images/photos/thumb/gal11.jpg"></li>
-			<li><img ng-click="vm.openImage(record.filename,$index)" src="images/photos/thumb/gal12.jpg"></li>
-			<li><img ng-click="vm.openImage(record.filename,$index)" src="images/photos/thumb/gal13.jpg"></li>
+			<li ng-repeat="gallery in vm.galleries">
+				<img ng-click="vm.openImage(gallery.filename,$index)" src="images/photos/thumb/{{gallery.filename}}">
+			</li>
 		</ul>
 	</section>
 </div>
