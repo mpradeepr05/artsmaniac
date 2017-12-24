@@ -14,6 +14,7 @@ var menuUl = document.getElementById("main-menu");
   var mHeight = document.getElementById("nav").clientHeight;
   function scrollToEele(id) {
     // vm.closeModal();
+    alert(id);
     var secId = document.getElementById(id).offsetTop;
     window.scroll({top: secId - mHeight, left: 0, behavior: 'smooth'});
   }
@@ -64,7 +65,7 @@ app.controller("myCtrl", function($scope,$uibModal) {
     var vm = this;
     vm.artworks = [
         {
-          "Image" : "images/painting/artsmaniac_vikram_2.jpg",
+          "Image" : "images/artsmaniac_vikram_2.jpg",
           "TitleName" : "Paintings"
         },
         {
@@ -174,7 +175,7 @@ app.controller("myClose", function($scope,$uibModalInstance,categoryType) {
     switch(categoryType){
       case 'Paintings':
         vm.artworks = [
-          {"Image" : "painting/artsmaniac_vikram_Jai_Jawan_Kisan.JPG"},
+          {"Image" : "painting/artsmaniac_vikram_Jai_Jawan_Kisan.jpg"},
           {"Image" : "painting/artsmaniac_vikram_portrait_apoorva.jpg"},
           {"Image" : "painting/artsmaniac_vikram_towards_yakshi.jpg"},
           {"Image" : "painting/artsmaniac_vikram_1.jpg"},
