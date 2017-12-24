@@ -367,18 +367,31 @@ nav li a.active{
         }
     }
 .gallery{
-    column-count: 3;
-    column-gap: 1px;
+    column-count: 4;
+    column-gap: 10px;
     padding:0px;
     list-style: none;
     @media (min-width: 768px) {
         width: 85%;
         float: right;
     }
+    li{
+        display: inline-block; margin: 0 0 10px; width: 100%; transition: 0.3s;
+        img{
+            width: 100%; max-width: 100%; border-radius: 5px; transition: 0.3s; cursor: pointer;
+        }
+    }
     @media (max-width:767px){
-       padding:0px 15px; 
+       padding:0px 15px;
+       column-gap: 5px;
+       li{
+            margin: 0 0 5px;
+       }
     }
 }
+
+.gallery:hover li img{opacity:0.5;}
+.gallery li:hover img{opacity:1;}
 
 .other-project{
     padding:0;
@@ -408,14 +421,6 @@ nav li a.active{
     }
 }
 
-.gallery li{
-    display: inline-block;
-    margin: 0 0 1px;
-    width: 100%;
-    transition: 0.3s;
-}
-.gallery li img{width: 100%; max-width: 100%; transition: 0.3s; cursor: pointer;}
-.gallery li:hover img{opacity: 0.5}
 .slider .slick-active .title{ bottom: 0px;transition-delay: 0.5s;}
 footer{border-top: 1px #eee solid;}
 footer a{color: #666; letter-spacing: 1px; margin:20px; font-size: 13px;}
