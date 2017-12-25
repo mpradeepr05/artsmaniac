@@ -59,7 +59,7 @@
 			</div>
 			<ul>
 				<li ng-repeat="project in vm.projects">
-					<img src="images/other-project/{{project.filename}}">
+					<img ng-src="images/other-project/{{project.filename}}">
 				</li>
 			</ul>
 		</article>
@@ -81,14 +81,14 @@
 			<div class="current">
 
 				<div class="image">
-					<img src="images/photos/{{vm.fileName}}">
+					<img ng-src="images/photos/{{vm.fileName}}">
 				</div>
 				<p class="caption"></p>
 			</div>
 		</div>
 		<ul class="gallery">
 			<li ng-repeat="gallery in vm.galleries">
-				<img ng-click="vm.openImage(gallery.filename,$index)" src="images/photos/thumb/{{gallery.filename}}">
+				<img ng-click="vm.openImage(gallery.filename,$index)" ng-src="images/photos/thumb/{{gallery.filename}}">
 			</li>
 		</ul>
 	</section>

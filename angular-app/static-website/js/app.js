@@ -14,7 +14,6 @@ var menuUl = document.getElementById("main-menu");
   var mHeight = document.getElementById("nav").clientHeight;
   function scrollToEele(id) {
     // vm.closeModal();
-    alert(id);
     var secId = document.getElementById(id).offsetTop;
     window.scroll({top: secId - mHeight, left: 0, behavior: 'smooth'});
   }
@@ -230,25 +229,5 @@ app.controller("myClose", function($scope,$uibModalInstance,categoryType) {
       default:
         break;
     }
-    // vm.artworks = [
-    //     {"Image" : "Gotya2.jpg"},
-    //     {"Image" : "Gotya5.jpg"},
-    //     {"Image" : "Gotya6.jpg"},
-    //     {"Image" : "Gotya7.jpg"},
-    //     {"Image" : "Gotya8.jpg"},
-    //     {"Image" : "Gotya9.jpg"},
-    //     {"Image" : "Gotya10.jpg"},
-    //     {"Image" : "Gotya11.jpg"},
-    //     {"Image" : "Gotya12.jpg"},
-    //     {"Image" : "Gotya13.jpg"},
-    //     {"Image" : "Gotya14.jpg"},
-    //     {"Image" : "Mela.jpg"},
-    //     {"Image" : "Page1.jpg"},
-    //     {"Image" : "Page2.jpg"},
-    //     {"Image" : "Page3.jpg"},
-    //     {"Image" : "Page4.jpg"},
-    //     {"Image" : "Page5.jpg"},
-    //     {"Image" : "Page6.jpg"},
-    // ]
 });
 
