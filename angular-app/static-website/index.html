@@ -20,15 +20,15 @@
 		
 	</script>
 </head>
-<body ng-app="myapp" ng-class="{'show-zoom': vm.fileName}">
-	<main ng-controller="myCtrl" class="home">
+<body ng-app="myapp">
+	<main ng-controller="myCtrl">
 		<header>
 			<nav id="nav">
 				<div class="logo small-logo col-sm-4">
 					<a href="#"><span class="color-brand">ARTS</span> MANIAC</a>
 				</div>
-				<input type="checkbox" name="" class="mobile-nav-input visible-xs">
-				<a class="mobile-nav visible-xs"></a>
+				<input type="checkbox" name="" class="mobile-nav-input visible-md">
+				<a class="mobile-nav visible-md"></a>
 				<ul id="main-menu" class="col-sm-8 main-menu" ng-click="vm.onNavClick($event)">
 					<li class="active"><a onclick='scrollToEele("home")' data="home">Home</a></li>
 					<li><a onclick='scrollToEele("aboutus")' data="aboutus">About artist</a></li>
@@ -39,12 +39,14 @@
 				</ul>
 			</nav>
 		</header>
+
 		<div data-ui-view=""></div>
+
 		<footer id="contact">
 			<section class="text-center">
 				<h1>Contact</h1>
 				<article>
-					<p class="contact"><span>vikramart82@gmail.com</span><br class="visible-xs"><span class="hidden-xs">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <span>+91 - 9818468295</span></p>
+					<p class="contact"><span>vikramart82@gmail.com</span><span class="hidden-xs">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span>artsmaniac17@gmail.com</span><span class="hidden-xs">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <span>+91 - 9818468295</span></p>
 				</article>
 			</section>
 			<section class="bg-gray text-center pt-30 pb-20">

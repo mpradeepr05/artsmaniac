@@ -101,7 +101,6 @@ a {
 }
 a:focus,
 a:hover {
-    color: #23527c;
     text-decoration: underline
 }
 a:focus {
@@ -235,7 +234,7 @@ nav li {
     padding-right: 25px;
 }
 nav li a{color: #000; position: relative; cursor:pointer; letter-spacing: 2px; text-decoration: none !important; font-size: 13px; text-transform: uppercase;}
-@media (max-width: 767px) {
+@media (max-width: 992px) {
     nav li a{color: #fff;}
 }
 nav ul li a:before, h1:before {
@@ -292,14 +291,14 @@ nav li a.active{
 .mobile-nav-input:checked ~ .mobile-nav:after{transform: rotate(-45deg);}
 .mobile-nav-input:checked ~ .mobile-nav{ height: 0px;}
 .mobile-nav-input:checked ~ .main-menu{display: block !important;
-@media (max-width: 767px) {background:rgba(0,0,0,0.8);}
+@media (max-width: 992px) {background:rgba(0,0,0,0.8);}
 }
 .pics{background: #ef0027; padding: 0px; border: 4px solid #ffffff; box-shadow: -4px 4px 0px 5px rgba(0, 0, 0, 0.05); border-radius: 150px;}
 .small-logo a{font-size: 17px; padding: 32px 40px 0 0; position: relative;margin-top: 0px;}
 .small-logo a:before{height:39px;width: 80px; position: relative; float: left; margin: 0; top:-10px; left: 30px;}
 .small-logo a span{margin-left: 20px;}
-.home .small-logo a{transform: translateY(-50px); transition: 0.3s; opacity: 0;}
-.home .small-logo.show-logo a{transform: translateY(0px); opacity: 1;}
+.small-logo a{transform: translateY(-50px); transition: 0.3s; opacity: 0;}
+.small-logo.show-logo a{transform: translateY(0px); opacity: 1;}
 .banner{min-height: 500px;}
 .slider{overflow:hidden;}
 .slick-list, .slick-track{height: 100%;}
@@ -372,7 +371,7 @@ nav li a.active{
     padding:0px;
     list-style: none;
     @media (min-width: 768px) {
-        width: 85%;
+        width:  calc(100% - 190px);
         float: right;
     }
     li{
@@ -402,7 +401,7 @@ nav li a.active{
             }
         }
         @media (min-width: 768px) {
-            width: 85%;
+            width: calc(100% - 190px);
             float: right;
         }
         .content{
@@ -416,6 +415,7 @@ nav li a.active{
         list-style: none;
             @media (max-width:767px){
                 padding:0px 15px;
+                column-count: 2;
             }
         }
     }
@@ -424,7 +424,7 @@ nav li a.active{
 .slider .slick-active .title{ bottom: 0px;transition-delay: 0.5s;}
 footer{border-top: 1px #eee solid;}
 footer a{color: #666; letter-spacing: 1px; margin:20px; font-size: 13px;}
-.contact{ font-size: 40px; margin-top: 60px;}
+.contact{ font-size: 25px; margin-top: 60px;}
 .copyright{font-size: 18px; vertical-align: sub;}
 .showmore:before{ content:"Show more"; z-index: 1; position: relative;}
 .more .showmore:before{content:"Show less";}
@@ -455,7 +455,11 @@ footer a{color: #666; letter-spacing: 1px; margin:20px; font-size: 13px;}
 }    
 .btn-stroked:hover:after{height: 100%;} 
 .btn-stroked:hover{color: #fff;}    
-
+@media (min-width:993px){
+    nav li:first-child{padding-left: 0;}
+    nav li {display: inline-block;}
+    .visible-md{display: none !important;}
+}
 @media (min-width:768px){
     .pr1-sm{padding-right: 1px;}
     .pl1-sm{padding-left: 1px;}
@@ -463,29 +467,56 @@ footer a{color: #666; letter-spacing: 1px; margin:20px; font-size: 13px;}
     .visible-sm{display: block !important;}
     .visible-xs{display: none !important;}
     .slider{height: 100%;}
-    nav li:first-child{padding-left: 0;}
-    nav li {display: inline-block;}
 }
-
+@media screen and (max-width: 1024px) and (min-width: 992px){
+    nav li {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+@media (max-width: 992px) {
+    .hidden-md{display: none !important;}
+    nav {
+        ul {
+            margin-top:0px;
+            padding-top: 20px !important;
+            padding-bottom: 1px !important;
+            width: 200px !important;
+            height: 100%;
+            list-style: none;
+            transition: 0.3s;
+            position: fixed !important;
+            right: -210px;
+            top: 65px;
+        } 
+        height: 65px; border-bottom: 1px #eee solid;
+    } 
+    nav ul li a:before{top: 20px; left: 0px; width: 0px; transform: translateX(0%);}
+    nav li.active a:before {width: 100% !important;}
+    .mobile-nav-input:checked ~ ul{right: 0px;}
+    .small-logo{
+        width: 80%;
+        a{
+            transform: translateY(15px) !important;
+            opacity: 1;
+            padding: 0px; margin-top: 10px;
+            &:before{
+                left: 0px; width: 60px;
+                height: 30px;
+                width: 40px;
+                top: -3px;
+                left: -5px;
+            }
+            span{margin-left: 6px;}
+        }
+    }
+}
 @media (max-width: 767px) {
     .hidden-xs{display: none !important;}
     h1{font-size: 40px;}
     h2{font-size: 30px;}
     h3{font-size: 24px; margin-bottom: 0px;}
     h4{font-size: 16px;}
-    .small-logo a {padding: 0px; margin-top: 10px;}
-    .home .small-logo a {
-        transform: translateY(15px) !important;
-        opacity: 1;
-    }
-    .small-logo a:before {
-        height: 30px;
-        width: 40px;
-        top: -3px;
-        left: -5px;
-    }
-    .logo.small-logo{width: 80%;}
-    nav{height: 65px; border-bottom: 1px #eee solid;}
     .slider .title{
         font-size: 18px;
         width: 100%;
@@ -498,17 +529,7 @@ footer a{color: #666; letter-spacing: 1px; margin:20px; font-size: 13px;}
     .pics {width: 80px;}
     .signature{width: 200px}
     .banner{height: auto !important;}
-    nav ul {margin-top: 31px; padding-top: 20px !important; padding-bottom: 1px !important;
-    width: 200px;
-    height: 100%;
-    list-style: none;
-    transition: 0.3s;
-    position: fixed !important;
-    right: -210px;}
-    .mobile-nav-input:checked ~ ul{right: 0px;}
-    nav ul li a:before{top: 20px; left: 0px; width: 0px; transform: translateX(0%);}
     nav ul li:hover a:before{width: 0px;}
-    nav li.active a:before {width: 100% !important;}
     .loading{height: 200px; overflow: hidden;}
     .contact{ font-size: 20px;}
 
@@ -554,7 +575,7 @@ h1.artist{
     margin: 0;
     list-style: none;
     @media (min-width: 768px) {
-        width: 85%;
+        width:  calc(100% - 190px);
         float: right;
     }
     @media (max-width:767px){
@@ -580,6 +601,9 @@ h1.artist{
         /*left: 50%;*/
         transition:0.5s;
         position: relative;
+        @media (max-width:1024px){
+            height: 200px;
+        }
         @media (max-width:767px){
             height: 220px;
         }
